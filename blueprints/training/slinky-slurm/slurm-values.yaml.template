@@ -29,8 +29,6 @@ controller:
     enabled: true
     serviceMonitor:
       enabled: true
-  extraConfMap:
-    GresTypes: "gpu"
 
 # Slurm accounting (slurmdbd) configurations.
 accounting:
@@ -97,6 +95,7 @@ nodesets:
       nodeSelector:
         karpenter.sh/nodepool: g5-nvidia
         kubernetes.io/os: linux
+        node.kubernetes.io/instance-type: g5.8xlarge
       tolerations:
         - key: "nvidia.com/gpu"
           operator: "Exists"
