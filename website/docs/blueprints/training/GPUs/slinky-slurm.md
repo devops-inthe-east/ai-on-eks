@@ -385,7 +385,7 @@ sed -i "s/export HF_TOKEN=.*$/export HF_TOKEN=$NEW_TOKEN/" llama2_7b-training.sb
 ```
 **2. Configure DataLoader for Containerized Environment:**
 
-When running in this Kubernetes-based Slurm setup, the DataLoader needs to use spawn-based multiprocessing instead of the default fork method. This ensures proper CUDA initialization within the containerized worker processes. For this, we'll add `multiprocessing_context='spawn'` to the DataLoader defined in the `train_utils.py` file. 
+When running in this Kubernetes-based Slurm setup, the DataLoader needs to use spawn-based multiprocessing instead of the default fork method. This ensures proper CUDA initialization within the containerized worker processes. For this, we'll add `multiprocessing_context='spawn'` to the DataLoader defined in the `train_utils.py` file.
 
 ```
 sed -i "s/timeout=600)/timeout=600, multiprocessing_context='spawn')/" ../src/model_utils/train_utils.py
