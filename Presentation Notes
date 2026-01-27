@@ -1,0 +1,25 @@
+R2f
+
+------------------------------------
+
+Purpose of the Workshop: 
+
+- AI Conformant K8s Cluster. [It is a short demo with respect to DRA, security, observability]
+- Kubernetes will eat the world. 
+
+------------------------------------
+
+- How Software is eating the world  ----> How Kubernetes is eating the world;
+
+Linux - Became the default OS for Data Centre. 
+
+K8S - Became the default OS for Distributed Systems.
+
+K8S - Will become the default OS for Accelerated Hardware.
+
+Certain Edge cases will be will include Slurm (OS)
+
+ Evolution of K8S with respect to K8S version. 
+
+------------------------------------
+
