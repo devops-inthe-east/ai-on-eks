@@ -418,8 +418,6 @@ resource "kubectl_manifest" "automode_manifests" {
 ################################################################################
 # EKS Auto Mode Ingress
 ################################################################################
-# EKS Auto Mode Ingress
-################################################################################
 resource "kubectl_manifest" "automode_ingressclass_params" {
   count     = var.enable_eks_auto_mode ? 1 : 0
   yaml_body = <<YAML
