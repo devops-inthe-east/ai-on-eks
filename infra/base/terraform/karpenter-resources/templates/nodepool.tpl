@@ -24,10 +24,18 @@ spec:
           effect: "NoSchedule"
 %{ endif ~}
       requirements:
+%{ if instance_family == "g5" ~}
+        - key: karpenter.k8s.aws/instance-type
+          operator: In
+          values:
+            - "g5.large"
+            - "g5.2xlarge"
+%{ else ~}
         - key: karpenter.k8s.aws/instance-family
           operator: In
           values:
             - ${instance_family}
+%{ endif ~}
         - key: karpenter.sh/capacity-type
           operator: In
           values:

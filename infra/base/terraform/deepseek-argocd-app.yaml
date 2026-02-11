@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: genai-deepseek
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/devops-inthe-east/ai-on-eks.git
+    targetRevision: HEAD
+    path: manifests/deepseek
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: deepseek-aibrix
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

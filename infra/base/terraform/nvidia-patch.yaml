@@ -1,0 +1,28 @@
+spec:
+  source:
+    helm:
+      values: |
+        nodeSelector:
+          karpenter.k8s.aws/instance-gpu-manufacturer: nvidia
+        gfd:
+          enabled: true
+        nfd:
+          enableNodeFeatureApi: true
+          gc:
+            nodeSelector:
+              karpenter.k8s.aws/instance-gpu-manufacturer: nvidia
+            tolerations:
+              - key: nvidia.com/gpu
+                operator: Exists
+                effect: NoSchedule
+          topologyUpdater:
+            nodeSelector:
+              karpenter.k8s.aws/instance-gpu-manufacturer: nvidia
+          worker:
+            nodeSelector:
+              karpenter.k8s.aws/instance-gpu-manufacturer: nvidia
+            tolerations:
+              - key: nvidia.com/gpu
+                operator: Exists
+                effect: NoSchedule
+              - operator: "Exists"
