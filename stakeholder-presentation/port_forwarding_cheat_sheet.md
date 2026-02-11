@@ -13,15 +13,27 @@ Access the vLLM OpenAI-compatible API endpoint directly.
 
 ## 2. Open WebUI (Chat Interface)
 The graphical chat interface for interacting with the model.
+
+### Method 1: Ingress (Recommended)
+*   **URL**: `http://k8s-deepseek-openwebu-301852e89e-695663236.us-west-2.elb.amazonaws.com`
+*   **Purpose**: Accessible from any browser without port forwarding.
+
+### Method 2: Port Forwarding (Local Only)
 *   **Command**:
     ```powershell
     kubectl port-forward svc/open-webui 8080:80 -n deepseek-aibrix
     ```
 *   **URL**: `http://localhost:8080`
-*   **Purpose**: Chatting with the LLM via browser.
+*   **Purpose**: Secure, local-only access.
 
 ## 3. Grafana (Dashboards)
 Visualize metrics (Throughput, Latency, GPU Usage).
+
+### Method 1: Ingress (Recommended)
+*   **URL**: `http://k8s-monitori-grafana-a14a97c403-1950561068.us-west-2.elb.amazonaws.com`
+*   **Login**: Default is `admin` / `prom-operator`.
+
+### Method 2: Port Forwarding (Local Only)
 *   **Command**:
     ```powershell
     kubectl port-forward svc/kube-prometheus-stack-grafana 3000:80 -n monitoring

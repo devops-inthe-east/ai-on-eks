@@ -18,6 +18,8 @@ spec:
         # Target only GPU nodes with accelerator: nvidia label
         nodeSelector:
           karpenter.k8s.aws/instance-gpu-manufacturer: nvidia
+        
+        failOnInitError: false
 
         # Enable GPU Feature Discovery (default: false)
         gfd:
